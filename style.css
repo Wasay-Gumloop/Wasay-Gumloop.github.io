@@ -222,9 +222,11 @@ nav {
   100% { transform: scale(1); }
 }
 
-/* --- Writing Section --- */
+/* --- Section Headings (shared) --- */
+.work h2,
 .writing h2,
-.about h2 {
+.into h2,
+.people h2 {
   font-family: var(--serif);
   font-size: 28px;
   font-weight: 400;
@@ -237,172 +239,132 @@ nav {
   margin-bottom: 36px;
 }
 
+/* --- Work Timeline --- */
+.work {
+  padding-bottom: 8px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 32px;
+}
+
+.timeline-entry {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+}
+
+.timeline-entry:last-child {
+  border-bottom: none;
+}
+
+.timeline-year {
+  flex-shrink: 0;
+  width: 120px;
+  font-size: 14px;
+  color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  padding-top: 2px;
+}
+
+.timeline-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.timeline-details h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.timeline-details p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* --- Writing Section --- */
 .post-list {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
 
-.post-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 22px 18px;
-  border-radius: 10px;
-  color: var(--text);
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-.post-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 100%;
-  background: var(--accent);
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  border-radius: 0 2px 2px 0;
-}
-
-.post-item:hover {
-  background: var(--bg-subtle);
-  color: var(--text);
-  transform: translateX(4px);
-  box-shadow: -3px 0 0 var(--accent);
-}
-
-.post-item:hover::before {
-  transform: scaleY(1);
-}
-
-.post-item:active {
-  transform: translateX(2px) scale(0.995);
-}
-
-/* Ripple effect */
-.post-item .ripple {
-  position: absolute;
-  border-radius: 50%;
-  background: var(--accent-glow);
-  transform: scale(0);
-  animation: ripple 0.5s ease-out;
-  pointer-events: none;
-}
-
-@keyframes ripple {
-  to { transform: scale(4); opacity: 0; }
-}
-
-.post-meta {
-  flex-shrink: 0;
-  width: 76px;
-  padding-top: 3px;
-}
-
-.post-meta time {
-  font-size: 13px;
+.empty-state {
   color: var(--text-tertiary);
-  letter-spacing: 0.06em;
-  font-variant-numeric: tabular-nums;
+  font-size: 15px;
+  font-style: italic;
 }
 
-.post-content {
-  flex: 1;
-  min-width: 0;
+/* --- Things I'm Into --- */
+.into {
+  padding-bottom: 8px;
 }
 
-.post-content h3 {
+.into-category {
+  margin-bottom: 28px;
+}
+
+.into-category:last-child {
+  margin-bottom: 0;
+}
+
+.into-category h3 {
   font-family: var(--serif);
   font-size: 20px;
   font-weight: 400;
-  margin-bottom: 5px;
-  line-height: 1.4;
-  transition: color 0.2s ease;
+  margin-bottom: 10px;
 }
 
-.post-item:hover .post-content h3 {
-  color: var(--accent);
+.into-category ul {
+  list-style: none;
+  padding: 0;
 }
 
-.post-content p {
-  font-size: 14.5px;
-  color: var(--text-secondary);
-  line-height: 1.65;
-}
-
-.post-arrow {
-  flex-shrink: 0;
-  color: var(--accent);
-  font-size: 16px;
-  padding-top: 3px;
-  opacity: 0;
-  transform: translateX(-8px);
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.post-item:hover .post-arrow {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* --- About / Interests --- */
-.interests {
-  display: flex;
-  flex-direction: column;
-  gap: 36px;
-  margin-top: 32px;
-}
-
-.interest-item {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  padding: 16px;
-  border-radius: 10px;
-  transition: background 0.3s ease, transform 0.2s ease;
-  cursor: default;
-}
-
-.interest-item:hover {
-  background: var(--bg-subtle);
-  transform: translateY(-2px);
-}
-
-.interest-item:active {
-  transform: translateY(0);
-}
-
-.interest-marker {
-  font-size: 12px;
-  font-variant-numeric: tabular-nums;
-  color: var(--text-tertiary);
-  padding-top: 5px;
-  flex-shrink: 0;
-  letter-spacing: 0.04em;
-  transition: color 0.3s ease;
-}
-
-.interest-item:hover .interest-marker {
-  color: var(--accent);
-}
-
-.interest-item h3 {
-  font-family: var(--serif);
-  font-size: 20px;
-  font-weight: 400;
-  margin-bottom: 5px;
-}
-
-.interest-item p {
+.into-category li {
   font-size: 15px;
   color: var(--text-secondary);
-  line-height: 1.75;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+
+.into-category li::before {
+  content: '–';
+  color: var(--text-tertiary);
+  margin-right: 10px;
+}
+
+/* --- People I Look Up To --- */
+.people {
+  padding-bottom: 8px;
+}
+
+.people-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.people-list li {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  padding: 4px 0;
+}
+
+.people-list li::before {
+  content: '–';
+  color: var(--text-tertiary);
+  margin-right: 10px;
 }
 
 /* --- Footer --- */
@@ -511,7 +473,6 @@ nav {
 .hero-greeting { animation-delay: 0.15s; }
 .hero h1 { animation-delay: 0.3s; }
 .hero-bio p:nth-child(1) { animation-delay: 0.5s; }
-.hero-bio p:nth-child(2) { animation-delay: 0.65s; }
 
 /* Scroll reveal base state */
 .reveal-section {
@@ -585,37 +546,30 @@ nav {
   .nav-links a { font-size: 14px; }
   .nav-name { font-size: 20px; }
   
+  .work h2,
   .writing h2,
-  .about h2 { font-size: 24px; }
+  .into h2,
+  .people h2 { font-size: 24px; }
   
-  .post-item {
+  /* Timeline stacks on mobile */
+  .timeline-entry {
     flex-direction: column;
     gap: 4px;
-    padding: 16px 14px;
+    padding: 20px 0;
   }
   
-  .post-item:hover {
-    transform: translateX(0);
-    box-shadow: none;
+  .timeline-year {
+    width: auto;
+    font-size: 13px;
   }
   
-  .post-item::before { display: none; }
+  .timeline-details h3 { font-size: 18px; }
+  .timeline-details p { font-size: 14.5px; }
   
-  .post-meta { width: auto; }
-  .post-meta time { font-size: 12px; }
-  .post-content h3 { font-size: 18px; }
-  .post-content p { font-size: 14px; }
-  .post-arrow { display: none; }
+  .into-category h3 { font-size: 18px; }
+  .into-category li { font-size: 14.5px; }
   
-  .interest-item {
-    flex-direction: column;
-    gap: 8px;
-    padding: 14px;
-  }
-  
-  .interest-item:hover { transform: none; }
-  .interest-item h3 { font-size: 18px; }
-  .interest-item p { font-size: 14.5px; }
+  .people-list li { font-size: 14.5px; }
   
   .divider { padding: 36px 0; }
   

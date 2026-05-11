@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>journal — wasay</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .gate {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .gate p {
+      color: var(--text-secondary);
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
+    .gate-form {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .gate-input {
+      font-family: var(--sans);
+      font-size: 15px;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg-subtle);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s ease;
+      width: 220px;
+    }
+    .gate-input:focus {
+      border-color: var(--accent);
+    }
+    .gate-input::placeholder {
+      color: var(--text-tertiary);
+    }
+    .gate-btn {
+      font-family: var(--sans);
+      font-size: 14px;
+      padding: 10px 20px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .gate-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .gate-error {
+      color: var(--accent);
+      font-size: 13px;
+      margin-top: 12px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .gate-error.show { opacity: 1; }
+    .journal-content { display: none; }
+    .journal-content.unlocked { display: block; }
+    .journal-content h2 {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .journal-content .section-desc {
+      margin-bottom: 36px;
+    }
+    .journal-empty {
+      color: var(--text-tertiary);
+      font-size: 15px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="grain"></div>
+  
+  <main>
+    <header class="site-header">
+      <nav>
+        <a href="/" class="nav-name">wasay</a>
+      </nav>
+    </header>
+
+    <div id="gate" class="gate">
+      <p>this page is private.</p>
+      <form class="gate-form" onsubmit="return tryUnlock()">
+        <input type="password" class="gate-input" id="gate-pw" placeholder="password" autocomplete="off">
+        <button type="submit" class="gate-btn">enter</button>
+      </form>
+      <p class="gate-error" id="gate-error">wrong password.</p>
+    </div>
+
+    <div id="journal" class="journal-content">
+      <section style="padding: 80px 0 60px;">
+        <h2>journal</h2>
+        <p class="section-desc">private writing. for me, mostly.</p>
+        <p class="journal-empty">nothing here yet.</p>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    // Client-side gate. Change the hash below to update the password.
+    // Generate: new TextEncoder().encode('your-password') → SHA-256 → hex
+    // Default password: "wasay" (change this)
+    const HASH = '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'; // "password"
+
+    async function sha256(str) {
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function tryUnlock() {
+      const pw = document.getElementById('gate-pw').value;
+      const h = await sha256(pw);
+      if (h === HASH) {
+        document.getElementById('gate').style.display = 'none';
+        document.getElementById('journal').classList.add('unlocked');
+        sessionStorage.setItem('journal-unlocked', '1');
+      } else {
+        document.getElementById('gate-error').classList.add('show');
+        setTimeout(() => document.getElementById('gate-error').classList.remove('show'), 2000);
+      }
+      return false;
+    }
+
+    // Restore unlock state within session
+    if (sessionStorage.getItem('journal-unlocked') === '1') {
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('journal').classList.add('unlocked');
+    }
+  </script>
+</body>
+</html>

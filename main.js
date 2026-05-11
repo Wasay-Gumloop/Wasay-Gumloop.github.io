@@ -29,13 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }, observerOptions);
 
   // Tag sections and items
-  document.querySelectorAll('.writing, .about, .site-footer').forEach(el => {
+  document.querySelectorAll('.work, .writing, .into, .people, .site-footer').forEach(el => {
     el.classList.add('reveal-section');
     sectionObserver.observe(el);
   });
 
-  document.querySelectorAll('.post-item').forEach(el => el.classList.add('reveal-item'));
-  document.querySelectorAll('.interest-item').forEach(el => el.classList.add('reveal-item'));
+  document.querySelectorAll('.timeline-entry').forEach(el => el.classList.add('reveal-item'));
+  document.querySelectorAll('.into-category').forEach(el => el.classList.add('reveal-item'));
 
   // --- Divider dot pulse on scroll-through ---
   const dotObserver = new IntersectionObserver((entries) => {
@@ -52,23 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.8 });
 
   document.querySelectorAll('.divider').forEach(el => dotObserver.observe(el));
-
-  // --- Ripple effect on clickable items ---
-  document.querySelectorAll('.post-item').forEach(item => {
-    item.addEventListener('click', function(e) {
-      // Create ripple
-      const ripple = document.createElement('span');
-      ripple.classList.add('ripple');
-      const rect = this.getBoundingClientRect();
-      const size = Math.max(rect.width, rect.height);
-      ripple.style.width = ripple.style.height = size + 'px';
-      ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
-      ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
-      this.appendChild(ripple);
-      
-      setTimeout(() => ripple.remove(), 500);
-    });
-  });
 
   // --- Smooth scroll for nav links ---
   document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -94,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
   scrollHint.innerHTML = '<span></span>';
   document.body.appendChild(scrollHint);
 
-  let lastScrollY = 0;
   let scrollHintHidden = false;
   
   window.addEventListener('scroll', () => {
@@ -118,11 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
       headerShrunk = false;
     }
   }, { passive: true });
-
-  // --- Interest items: number color transition on hover ---
-  document.querySelectorAll('.interest-item').forEach(item => {
-    item.style.transition = 'background 0.3s ease, transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-  });
 
   // --- Footer email link: subtle bounce on hover ---
   const emailLink = document.querySelector('.email-link');
