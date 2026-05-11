@@ -4,6 +4,26 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // --- Live clock for location widget ---
+  // TIMEZONE — change this when you move
+  const LOCATION_TZ = 'Asia/Kuala_Lumpur';
+
+  function updateClock() {
+    const el = document.getElementById('location-time');
+    if (!el) return;
+    const now = new Date();
+    const fmt = new Intl.DateTimeFormat('en-GB', {
+      timeZone: LOCATION_TZ,
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    });
+    el.textContent = fmt.format(now).toLowerCase();
+  }
+
+  updateClock();
+  setInterval(updateClock, 30000); // update every 30s
+
   // --- Scroll-reveal with staggered items ---
   const observerOptions = {
     threshold: 0.08,
@@ -14,37 +34,31 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('revealed');
-        
-        // Stagger child items
         const items = entry.target.querySelectorAll('.reveal-item');
         items.forEach((item, i) => {
-          setTimeout(() => {
-            item.classList.add('revealed');
-          }, 80 + i * 100);
+          setTimeout(() => item.classList.add('revealed'), 80 + i * 100);
         });
-        
         sectionObserver.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
-  // Tag sections and items
   document.querySelectorAll('.work, .writing, .into, .people, .site-footer').forEach(el => {
     el.classList.add('reveal-section');
     sectionObserver.observe(el);
   });
 
-  document.querySelectorAll('.timeline-entry').forEach(el => el.classList.add('reveal-item'));
-  document.querySelectorAll('.into-category').forEach(el => el.classList.add('reveal-item'));
+  document.querySelectorAll('.h-timeline-entry').forEach(el => el.classList.add('reveal-item'));
+  document.querySelectorAll('.into-card').forEach(el => el.classList.add('reveal-item'));
 
-  // --- Divider dot pulse on scroll-through ---
+  // --- Divider dot pulse ---
   const dotObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const dot = entry.target.querySelector('.dot');
         if (dot) {
           dot.classList.remove('pulse');
-          void dot.offsetWidth; // reflow
+          void dot.offsetWidth;
           dot.classList.add('pulse');
         }
       }
@@ -60,25 +74,19 @@ document.addEventListener('DOMContentLoaded', () => {
       if (target) {
         e.preventDefault();
         const headerOffset = 40;
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
+        const pos = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+        window.scrollTo({ top: pos, behavior: 'smooth' });
       }
     });
   });
 
-  // --- Scroll hint (visible at top, fades on scroll) ---
+  // --- Scroll hint ---
   const scrollHint = document.createElement('div');
   scrollHint.className = 'scroll-hint visible';
   scrollHint.innerHTML = '<span></span>';
   document.body.appendChild(scrollHint);
 
   let scrollHintHidden = false;
-  
   window.addEventListener('scroll', () => {
     if (!scrollHintHidden && window.scrollY > 100) {
       scrollHint.classList.remove('visible');
@@ -101,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
 
-  // --- Footer email link: subtle bounce on hover ---
+  // --- Footer email link ---
   const emailLink = document.querySelector('.email-link');
   if (emailLink) {
     emailLink.addEventListener('mouseenter', () => {
