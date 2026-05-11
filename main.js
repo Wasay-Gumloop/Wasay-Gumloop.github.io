@@ -1,10 +1,10 @@
 // ========================================
-// wasay.dev — quiet interactions & motion
+// wasay.dev
 // ========================================
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- Live clock for location widget ---
+  // --- Live clock ---
   // TIMEZONE — change this when you move
   const LOCATION_TZ = 'Asia/Kuala_Lumpur';
 
@@ -22,14 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   updateClock();
-  setInterval(updateClock, 30000); // update every 30s
+  setInterval(updateClock, 30000);
 
-  // --- Scroll-reveal with staggered items ---
-  const observerOptions = {
-    threshold: 0.08,
-    rootMargin: '0px 0px -30px 0px'
-  };
-
+  // --- Scroll reveal ---
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -41,17 +36,18 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionObserver.unobserve(entry.target);
       }
     });
-  }, observerOptions);
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
-  document.querySelectorAll('.work, .writing, .into, .people, .site-footer').forEach(el => {
+  document.querySelectorAll('.work, .writing, .content-section, .people, .places, .site-footer').forEach(el => {
     el.classList.add('reveal-section');
     sectionObserver.observe(el);
   });
 
   document.querySelectorAll('.h-timeline-entry').forEach(el => el.classList.add('reveal-item'));
-  document.querySelectorAll('.into-card').forEach(el => el.classList.add('reveal-item'));
+  document.querySelectorAll('.person-entry').forEach(el => el.classList.add('reveal-item'));
+  document.querySelectorAll('.place-tag').forEach(el => el.classList.add('reveal-item'));
 
-  // --- Divider dot pulse ---
+  // --- Dot pulse ---
   const dotObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -67,14 +63,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.divider').forEach(el => dotObserver.observe(el));
 
-  // --- Smooth scroll for nav links ---
+  // --- Smooth scroll ---
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function(e) {
       const target = document.querySelector(this.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        const headerOffset = 40;
-        const pos = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+        const pos = target.getBoundingClientRect().top + window.pageYOffset - 40;
         window.scrollTo({ top: pos, behavior: 'smooth' });
       }
     });
@@ -94,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
 
-  // --- Nav shrink on scroll ---
+  // --- Nav shrink ---
   const header = document.querySelector('.site-header');
   let headerShrunk = false;
 
@@ -108,13 +103,4 @@ document.addEventListener('DOMContentLoaded', () => {
       headerShrunk = false;
     }
   }, { passive: true });
-
-  // --- Footer email link ---
-  const emailLink = document.querySelector('.email-link');
-  if (emailLink) {
-    emailLink.addEventListener('mouseenter', () => {
-      emailLink.style.animation = 'none';
-      void emailLink.offsetWidth;
-    });
-  }
 });

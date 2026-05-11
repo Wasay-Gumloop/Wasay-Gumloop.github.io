@@ -19,19 +19,19 @@
   <main>
     <header class="site-header">
       <nav>
-        <a href="/" class="nav-name">Wasay</a>
-        <div class="nav-right">
-          <div class="nav-links">
-            <a href="#writing">Writing</a>
-            <a href="#work">Work</a>
-          </div>
-          <!-- LOCATION WIDGET — edit location/timezone when you move -->
+        <div class="nav-left">
+          <a href="/" class="nav-name">Wasay</a>
+          <!-- LOCATION WIDGET — edit when you move -->
           <div class="location-widget" id="location-widget">
             <span class="location-pin">📍</span>
-            <span class="location-text">Malaysia</span>
+            <span class="location-text">Currently in Malaysia</span>
             <span class="location-sep">·</span>
             <span class="location-time" id="location-time"></span>
           </div>
+        </div>
+        <div class="nav-links">
+          <a href="#writing">writing</a>
+          <a href="#work">work</a>
         </div>
       </nav>
     </header>
@@ -52,20 +52,31 @@
       <div class="hero-bio">
         <p>
           <!-- LOCATION — edit this line when you move -->
-          📍 Currently in Kuala Lumpur.
-          Born in Sweden, raised in Karachi. Studied at Nixor and then IBA (ACF program).
-          I work at <a href="https://gumloop.com" target="_blank" rel="noopener">Gumloop</a>, an AI automation company — mostly on the technical side, working with enterprise customers.
+          Currently in Kuala Lumpur. Born in Sweden, raised in Karachi. Studied at Nixor and then IBA (ACF program).
+          I work at <a href="https://gumloop.com" target="_blank" rel="noopener">Gumloop</a>, an AI automation company. Mostly on the technical side, working with enterprise customers.
           Before this I ran a Shopify agency, then traded crypto and NFTs.
           Eventually I'd like to build something of my own.
-          I've spent time in 🇸🇪&nbsp;Sweden, 🇺🇸&nbsp;USA, 🇸🇬&nbsp;Singapore, 🇭🇰&nbsp;Hong Kong, 🇱🇰&nbsp;Sri Lanka, 🇸🇦&nbsp;Saudi Arabia, Umrah, and now 🇲🇾&nbsp;Malaysia.
         </p>
+      </div>
+    </section>
+
+    <section class="places">
+      <h2>places i've been</h2>
+      <div class="places-list">
+        <span class="place-tag">🇸🇪 Sweden</span>
+        <span class="place-tag">🇺🇸 USA</span>
+        <span class="place-tag">🇸🇬 Singapore</span>
+        <span class="place-tag">🇭🇰 Hong Kong</span>
+        <span class="place-tag">🇱🇰 Sri Lanka</span>
+        <span class="place-tag">🇸🇦 Saudi Arabia, Umrah</span>
+        <span class="place-tag active">🇲🇾 Malaysia</span>
       </div>
     </section>
 
     <div class="divider"><span class="dot"></span></div>
 
     <section id="work" class="work">
-      <h2>Work</h2>
+      <h2>work</h2>
       <div class="h-timeline">
         <div class="h-timeline-track">
           <div class="h-timeline-line"></div>
@@ -87,10 +98,10 @@
           </div>
           <div class="h-timeline-entry active">
             <div class="h-timeline-dot active"></div>
-            <div class="h-timeline-year">2024 — Now</div>
+            <div class="h-timeline-year">2024 — now</div>
             <div class="h-timeline-label">
               <h3>Gumloop</h3>
-              <p>AI automation startup. Customer-facing technical work — debugging agents, working with enterprise customers, building support infrastructure.</p>
+              <p>AI automation startup. Customer-facing technical work. Debugging agents, working with enterprise customers, building support infrastructure.</p>
             </div>
           </div>
         </div>
@@ -100,52 +111,53 @@
     <div class="divider"><span class="dot"></span></div>
 
     <section id="writing" class="writing">
-      <h2>Writing</h2>
-      <p class="section-desc">Essays, notes, and thoughts — updated when something is worth sharing.</p>
+      <h2>writing</h2>
+      <p class="section-desc">Essays, notes, and thoughts. Updated when something is worth sharing.</p>
       <p class="empty-state">Nothing here yet. Soon.</p>
     </section>
 
     <div class="divider"><span class="dot"></span></div>
 
-    <section class="into">
-      <h2>Things I'm Into</h2>
-      <p class="section-desc">Stuff I'd recommend.</p>
-      <div class="into-grid">
-        <a href="books.html" class="into-card">
-          <span class="into-card-icon">📚</span>
-          <h3>Books</h3>
-        </a>
-        <a href="podcasts.html" class="into-card">
-          <span class="into-card-icon">🎙️</span>
-          <h3>Podcasts &amp; Talks</h3>
-        </a>
-        <a href="essays.html" class="into-card">
-          <span class="into-card-icon">✍️</span>
-          <h3>Essays &amp; Writing</h3>
-        </a>
-        <a href="accounts.html" class="into-card">
-          <span class="into-card-icon">👤</span>
-          <h3>Accounts Worth Following</h3>
-        </a>
-      </div>
+    <section class="content-section">
+      <h2>content i've liked</h2>
+      <p class="section-desc">Things I've watched, read, and saved that changed how I think.</p>
+      <a href="content.html" class="see-more-link">See the list →</a>
     </section>
 
     <div class="divider"><span class="dot"></span></div>
 
     <section class="people">
-      <h2>People I Look Up To</h2>
-      <ul class="people-list">
-        <li>[Placeholder — name, one line]</li>
-        <li>[Placeholder]</li>
-        <li>[Placeholder]</li>
-      </ul>
+      <h2>people i look up to</h2>
+      <p class="section-desc">Mostly tech people, but not all.</p>
+
+      <div class="people-entries">
+        <div class="person-entry">
+          <h3><a href="https://www.youtube.com/watch?v=aPX_K2VOZOE" target="_blank" rel="noopener">José Mourinho</a></h3>
+          <p>Football, not tech. One of the first managers I really liked. He had a good mix of confidence and ego. I get that from him.</p>
+        </div>
+
+        <div class="person-entry">
+          <h3><a href="https://x.com/ShaanVP" target="_blank" rel="noopener">Shaan Puri</a></h3>
+          <p>Started watching My First Million early on. The clarity he provided was insane. Open-minded, curious, and when he's wrong he owns it. His storytelling is top-notch. Seems like a fun tech guy to be around.</p>
+        </div>
+
+        <div class="person-entry">
+          <h3><a href="https://x.com/FarzaTV" target="_blank" rel="noopener">Farza</a></h3>
+          <p>Top-notch builder. The amount of stuff he's shipped is what I think defines a person. The builder mindset comes from him. Keep building.</p>
+        </div>
+
+        <div class="person-entry">
+          <h3><a href="https://www.instagram.com/soph.jones__/" target="_blank" rel="noopener">Soph Jones</a></h3>
+          <p>Rejection therapy and being unapologetically yourself. The "not caring what people think" energy is something I'm still working towards. Life is short. Go make a fool of yourself and learn from it.</p>
+        </div>
+      </div>
     </section>
 
     <div class="divider"><span class="dot"></span></div>
 
     <footer class="site-footer">
       <div class="footer-cta">
-        <p>If something here resonated — or you just want to say hi — reach out.</p>
+        <p>If something here resonated, or you just want to say hi, reach out.</p>
         <a href="mailto:wasaiuahmed09@gmail.com" class="email-link">wasaiuahmed09@gmail.com</a>
       </div>
       <div class="footer-links">
