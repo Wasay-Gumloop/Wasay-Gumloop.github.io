@@ -1,2 +1,3 @@
 # wasay.dev
-Personal site — writing, thoughts, and things I care about.
+
+Personal site. Live at https://wasay-gumloop.github.io/
