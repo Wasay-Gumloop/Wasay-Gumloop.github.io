@@ -587,26 +587,30 @@ nav {
 /* --- Essay body (sub-page prose) --- */
 .essay-body p {
   font-size: 17px;
-  line-height: 1.75;
+  line-height: 1.7;
   color: var(--text);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .essay-body h2 {
   font-family: var(--serif);
-  font-size: 23px;
+  font-size: 21px;
   font-weight: 400;
   color: var(--text);
-  margin: 52px 0 18px;
+  margin: 40px 0 12px;
   letter-spacing: -0.005em;
 }
 
+.essay-body h2:first-child {
+  margin-top: 8px;
+}
+
 .essay-body .essay-coda {
-  font-style: italic;
   color: var(--text-secondary);
-  margin-top: 56px;
-  padding-top: 32px;
+  margin-top: 44px;
+  padding-top: 28px;
   border-top: 1px solid var(--border);
+  font-size: 15px;
 }
 
 /* --- Agency chart (line art SVG) --- */
@@ -695,9 +699,9 @@ nav {
 
   .learning-preview { font-size: 15px; }
 
-  .essay-body p { font-size: 16px; }
-  .essay-body h2 { font-size: 20px; margin: 40px 0 14px; }
-  .essay-body .essay-coda { margin-top: 40px; padding-top: 24px; }
+  .essay-body p { font-size: 16px; line-height: 1.65; margin-bottom: 14px; }
+  .essay-body h2 { font-size: 19px; margin: 32px 0 10px; }
+  .essay-body .essay-coda { margin-top: 32px; padding-top: 22px; font-size: 14px; }
 
   .agency-chart { margin: 36px 0; }
   .agency-chart svg { max-height: 220px; }
