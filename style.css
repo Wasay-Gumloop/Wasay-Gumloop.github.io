@@ -573,6 +573,138 @@ nav {
   margin-top: 40px;
 }
 
+/* --- Writing post list --- */
+.post-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-item {
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+}
+
+.post-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.post-item .content-type {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.post-item h3 {
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
+.post-item h3 a {
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.post-item h3 a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.post-item p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* --- Essay body (sub-page prose) --- */
+.essay-body p {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.essay-body h2 {
+  font-family: var(--serif);
+  font-size: 23px;
+  font-weight: 400;
+  color: var(--text);
+  margin: 52px 0 18px;
+  letter-spacing: -0.005em;
+}
+
+.essay-body .essay-coda {
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+/* --- Agency chart (line art SVG) --- */
+.agency-chart {
+  margin: 48px 0;
+}
+
+.agency-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+}
+
+.agency-chart .chart-axis {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.agency-chart .chart-curve {
+  stroke: var(--accent);
+  stroke-width: 2;
+  fill: none;
+}
+
+.agency-chart .chart-stop {
+  stroke: var(--text-tertiary);
+  stroke-width: 1;
+  stroke-dasharray: 4 5;
+}
+
+.agency-chart .chart-dot-muted {
+  fill: var(--text-tertiary);
+}
+
+.agency-chart .chart-dot-accent {
+  fill: var(--accent);
+}
+
+.agency-chart .chart-text-muted {
+  fill: var(--text-tertiary);
+  font-family: var(--sans);
+  font-size: 13px;
+}
+
+.agency-chart .chart-text-accent {
+  fill: var(--accent);
+  font-family: var(--serif);
+  font-size: 17px;
+  font-style: italic;
+}
+
+.agency-chart figcaption {
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: 14px;
+  font-style: italic;
+}
+
 /* --- Responsive --- */
 @media (max-width: 600px) {
   body { font-size: 16px; }
@@ -597,6 +729,18 @@ nav {
 
   .person-entry h3 { font-size: 18px; }
   .person-entry p { font-size: 14.5px; }
+
+  .post-item { padding: 20px 0; }
+  .post-item h3 { font-size: 19px; }
+  .post-item p { font-size: 14.5px; }
+
+  .essay-body p { font-size: 16px; }
+  .essay-body h2 { font-size: 20px; margin: 40px 0 14px; }
+  .essay-body .essay-coda { margin-top: 40px; padding-top: 24px; }
+
+  .agency-chart { margin: 36px 0; }
+  .agency-chart svg { max-height: 220px; }
+  .agency-chart figcaption { font-size: 13px; }
 
   .divider { padding: 36px 0; }
   .email-link { font-size: 20px; }
