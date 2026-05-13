@@ -231,7 +231,7 @@ nav {
 }
 
 /* --- Section headings --- */
-.work h2, .writing h2, .content-section h2, .people h2 {
+.work h2, .learnings h2, .content-section h2, .people h2 {
   font-family: var(--serif);
   font-size: 28px;
   font-weight: 400;
@@ -573,52 +573,15 @@ nav {
   margin-top: 40px;
 }
 
-/* --- Writing post list --- */
-.post-list {
+/* --- Learnings preview row --- */
+.learning-preview {
   display: flex;
-  flex-direction: column;
-}
-
-.post-item {
-  padding: 24px 0;
-  border-top: 1px solid var(--border);
-}
-
-.post-item:last-child {
-  border-bottom: 1px solid var(--border);
-}
-
-.post-item .content-type {
-  font-size: 12px;
-  color: var(--text-tertiary);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.post-item h3 {
-  font-family: var(--serif);
-  font-size: 21px;
-  font-weight: 400;
-  margin-bottom: 6px;
-}
-
-.post-item h3 a {
-  color: var(--text);
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 1px;
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-.post-item h3 a:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
-}
-
-.post-item p {
-  font-size: 15px;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 16px;
   color: var(--text-secondary);
-  line-height: 1.7;
 }
 
 /* --- Essay body (sub-page prose) --- */
@@ -718,7 +681,7 @@ nav {
   .nav-name { font-size: 20px; }
   .location-widget { font-size: 11px; }
 
-  .work h2, .writing h2, .content-section h2, .people h2 { font-size: 24px; }
+  .work h2, .learnings h2, .content-section h2, .people h2 { font-size: 24px; }
 
   .h-timeline-entry { flex: 0 0 180px; }
   .h-timeline-label p { max-width: 160px; font-size: 13px; }
@@ -730,9 +693,7 @@ nav {
   .person-entry h3 { font-size: 18px; }
   .person-entry p { font-size: 14.5px; }
 
-  .post-item { padding: 20px 0; }
-  .post-item h3 { font-size: 19px; }
-  .post-item p { font-size: 14.5px; }
+  .learning-preview { font-size: 15px; }
 
   .essay-body p { font-size: 16px; }
   .essay-body h2 { font-size: 20px; margin: 40px 0 14px; }
