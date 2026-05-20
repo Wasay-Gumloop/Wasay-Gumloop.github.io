@@ -573,6 +573,222 @@ nav {
   margin-top: 40px;
 }
 
+/* --- Content sub-page: sectioned layout --- */
+.content-section-heading {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  margin-top: 56px;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.content-section-desc {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+/* Instagram reels grid */
+.reels-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.reel-card {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+  align-items: flex-start;
+}
+
+.reel-card:hover {
+  border-color: var(--accent);
+  background: var(--bg-subtle);
+}
+
+.reel-text { flex: 1; min-width: 0; }
+
+.reel-card h3 {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.reel-card:hover h3 { color: var(--accent); }
+
+.reel-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.reel-thumb {
+  flex: 0 0 72px;
+  width: 72px;
+  height: 112px;
+  border-radius: 4px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  background: var(--bg-subtle);
+  pointer-events: none;
+}
+
+.reel-card:hover .reel-thumb {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reel-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.reel-pin {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-glow);
+  padding: 3px 7px;
+  border-radius: 3px;
+  font-family: var(--sans);
+}
+
+.reel-card.pinned { border-color: rgba(196, 93, 62, 0.28); }
+
+/* Videos list */
+.video-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.video-entry {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  text-decoration: none;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+  transition: opacity 0.2s ease;
+}
+
+.video-entry:first-child { border-top: 1px solid var(--border); }
+.video-entry:hover h3 { color: var(--accent); }
+
+.video-thumb {
+  flex: 0 0 112px;
+  width: 112px;
+  height: 63px;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--bg-subtle);
+}
+
+.video-text { flex: 1; min-width: 0; }
+
+.video-entry h3 {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 4px;
+  transition: color 0.2s ease;
+}
+
+.video-entry p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Articles list */
+.article-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.article-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.article-list li:first-child { border-top: 1px solid var(--border); }
+
+.article-list li a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 18px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.article-list li a::before {
+  content: "→";
+  color: var(--text-tertiary);
+  font-family: var(--sans);
+  font-size: 14px;
+  transition: transform 0.2s ease, color 0.2s ease;
+  display: inline-block;
+}
+
+.article-list li a:hover { color: var(--accent); }
+
+.article-list li a:hover::before {
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+/* Mobile tweaks for new content layout */
+@media (max-width: 600px) {
+  .content-section-heading { font-size: 20px; margin-top: 44px; }
+  .reel-card {
+    padding: 14px 16px;
+    gap: 14px;
+  }
+  .reel-card h3 { font-size: 17px; }
+  .reel-card p { font-size: 13.5px; }
+  .reel-thumb {
+    opacity: 1;
+    transform: none;
+    flex: 0 0 56px;
+    width: 56px;
+    height: 88px;
+  }
+  .reel-pin { top: 10px; right: 10px; font-size: 9px; }
+  .video-entry { padding: 14px 0; gap: 12px; }
+  .video-thumb { flex: 0 0 92px; width: 92px; height: 52px; }
+  .video-entry h3 { font-size: 16.5px; }
+  .video-entry p { font-size: 13.5px; }
+  .article-list li a { font-size: 16.5px; }
+}
+
+
 /* --- Learnings preview row --- */
 .learning-preview {
   display: flex;
