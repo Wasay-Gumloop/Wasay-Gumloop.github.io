@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>i'm not a [blank] person — Wasay</title>
+  <meta name="description" content="On the sentences that quietly cage you, and the small move of refusing to let them close.">
+  <meta property="og:title" content="i'm not a [blank] person — Wasay">
+  <meta property="og:description" content="On the sentences that quietly cage you, and the small move of refusing to let them close.">
+  <meta property="og:type" content="article">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .essay-body h2 {
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+    .fence-trail {
+      margin: 2.5em auto;
+      max-width: 540px;
+    }
+    .fence-trail svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .fence-trail .fence-post line,
+    .fence-trail .fence-rail {
+      stroke: currentColor;
+      stroke-width: 1.4;
+      opacity: 0.55;
+    }
+    .fence-trail .fence-rail {
+      opacity: 0.4;
+      stroke-dasharray: 3 3;
+    }
+    .fence-trail .fence-fade {
+      stroke: currentColor;
+      stroke-width: 1.2;
+      opacity: 0.32;
+    }
+    .fence-trail .trail-dots circle {
+      fill: currentColor;
+      opacity: 0.7;
+    }
+    .fence-trail .trail-dots circle:nth-child(2) { opacity: 0.55; }
+    .fence-trail .trail-dots circle:nth-child(3) { opacity: 0.4; }
+    .fence-trail .trail-dots circle:nth-child(4) { opacity: 0.28; }
+    .fence-trail .ground {
+      stroke: currentColor;
+      stroke-width: 1;
+      opacity: 0.2;
+      stroke-dasharray: 2 4;
+    }
+  </style>
+</head>
+<body>
+  <div class="grain"></div>
+  <main>
+    <header class="subpage-header">
+      <a href="/" class="subpage-back">← Back</a>
+    </header>
+    <section class="subpage-content">
+      <h1>i'm not a [blank] person</h1>
+      <p class="section-desc">on the sentences that quietly cage you.</p>
+      <div class="essay-body">
+        <p>the sentences we say about ourselves most casually are the ones that do the most damage. "i'm an introvert" is the one i've used for years. it sounds like a description. it works like a fence. someone asks if i want to go to a concert and the sentence is already in my mouth, doing the work of declining before i've even thought about whether i wanted to go. i'm an introvert, so i don't do concerts. i'm an introvert, so i don't do big dinners. i'm an introvert, so. the word stops being a thing i am and becomes a thing i hide behind, and the hiding gets more comfortable every time.</p>
+
+        <figure class="fence-trail">
+          <svg viewBox="0 0 600 180" preserveAspectRatio="xMidYMid meet" role="img" aria-label="A row of vertical fence posts on the left dissolving into trailing dots that scatter outward into open space.">
+            <!-- fence posts -->
+            <g class="fence-post">
+              <line x1="60" y1="40" x2="60" y2="150"/>
+              <line x1="105" y1="40" x2="105" y2="150"/>
+              <line x1="150" y1="40" x2="150" y2="150"/>
+              <line x1="195" y1="40" x2="195" y2="150"/>
+              <line x1="240" y1="40" x2="240" y2="150"/>
+            </g>
+            <!-- top rail, dashed -->
+            <line x1="50" y1="40" x2="250" y2="40" class="fence-rail"/>
+            <!-- transitional short post, fading -->
+            <line x1="290" y1="80" x2="290" y2="115" class="fence-fade"/>
+            <!-- trailing dots -->
+            <g class="trail-dots">
+              <circle cx="340" cy="97" r="3.5"/>
+              <circle cx="390" cy="97" r="3"/>
+              <circle cx="445" cy="97" r="2.5"/>
+              <circle cx="505" cy="97" r="2"/>
+            </g>
+            <!-- ground, continuing past the fence -->
+            <line x1="40" y1="150" x2="560" y2="150" class="ground"/>
+          </svg>
+        </figure>
+
+        <p>the move i'm trying to learn is small. add "for now" to the end. not "i'm an introvert, i don't do concerts." instead, "i'm an introvert, i don't do concerts for now..." the trailing dots are the whole point. they refuse to let the sentence close. they admit that the person saying it today might not be the person reading it back in a year. the scary part was never the concert or the dinner or whatever else i declined in a sentence i said too quickly. the scary part is realising how many doors i closed on myself with throwaway lines, and how few of them were ever actually locked.</p>
+
+        <p class="essay-coda">a learning, not a lesson. i still catch myself doing it most weeks.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
