@@ -861,12 +861,21 @@ nav {
   position: absolute;
   bottom: 10px;
   right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-family: var(--sans);
   font-size: 9.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent);
   z-index: 1;
+}
+
+.reel-pin-icon {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
 }
 
 /* ----- Video list ----- */
