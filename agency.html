@@ -12,6 +12,58 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .essay-body h2 {
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+    .agency-doors {
+      margin: 2.5em auto;
+      max-width: 540px;
+    }
+    .agency-doors svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .agency-doors .door-closed rect,
+    .agency-doors .door-open rect,
+    .agency-doors .door-frame {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.4;
+      opacity: 0.55;
+    }
+    .agency-doors .door-closed line,
+    .agency-doors .door-open line {
+      stroke: currentColor;
+      stroke-width: 1;
+      opacity: 0.4;
+    }
+    .agency-doors .door-closed circle,
+    .agency-doors .door-open circle {
+      fill: currentColor;
+      opacity: 0.5;
+    }
+    .agency-doors .door-open rect,
+    .agency-doors .door-open line,
+    .agency-doors .door-open circle {
+      opacity: 0.95;
+      stroke-width: 1.6;
+    }
+    .agency-doors .door-frame {
+      opacity: 0.35;
+      stroke-dasharray: 3 3;
+    }
+    .agency-doors .motion-line {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.2;
+      opacity: 0.7;
+      stroke-linecap: round;
+    }
+  </style>
 </head>
 <body>
   <div class="grain"></div>
@@ -29,6 +81,60 @@
         <p>If a customer is stuck and they're technically not "mine", I'm still helping them. If something is broken and nobody owns it yet, I own it. If I think a thing should exist, I build the first ugly version of it instead of writing a doc proposing it. Trying and failing teaches you more in a week than asking for permission teaches you in a year.</p>
 
         <p>I got my job at Gumloop this way. They weren't hiring. They weren't hiring remotely. They definitely weren't hiring someone from Pakistan. I cold DM'd the founder. Got ignored. DM'd again months later. Then again. Eventually he opened it. That's the job. There was no door, so I made one.</p>
+
+        <figure class="agency-doors">
+          <svg viewBox="0 0 600 180" preserveAspectRatio="xMidYMid meet" role="img" aria-label="A row of closed doors with one kicked open at an angle.">
+            <!-- closed door 1 -->
+            <g class="door-closed">
+              <rect x="40" y="30" width="70" height="130" rx="2"/>
+              <circle cx="98" cy="95" r="2.5"/>
+              <line x1="50" y1="50" x2="100" y2="50"/>
+              <line x1="50" y1="90" x2="100" y2="90"/>
+              <line x1="50" y1="130" x2="100" y2="130"/>
+            </g>
+            <!-- closed door 2 -->
+            <g class="door-closed">
+              <rect x="140" y="30" width="70" height="130" rx="2"/>
+              <circle cx="198" cy="95" r="2.5"/>
+              <line x1="150" y1="50" x2="200" y2="50"/>
+              <line x1="150" y1="90" x2="200" y2="90"/>
+              <line x1="150" y1="130" x2="200" y2="130"/>
+            </g>
+            <!-- kicked open door (frame stays, door swings out at angle) -->
+            <g class="door-open">
+              <!-- frame -->
+              <rect x="240" y="30" width="70" height="130" rx="2" class="door-frame"/>
+              <!-- swung door -->
+              <g transform="translate(240 30) rotate(-32)">
+                <rect x="0" y="0" width="70" height="130" rx="2"/>
+                <circle cx="58" cy="65" r="2.5"/>
+                <line x1="10" y1="20" x2="60" y2="20"/>
+                <line x1="10" y1="60" x2="60" y2="60"/>
+                <line x1="10" y1="100" x2="60" y2="100"/>
+              </g>
+              <!-- motion lines -->
+              <path d="M 320 50 Q 340 55 355 65" class="motion-line"/>
+              <path d="M 325 90 Q 345 92 360 95" class="motion-line"/>
+              <path d="M 320 130 Q 340 128 355 122" class="motion-line"/>
+            </g>
+            <!-- closed door 4 -->
+            <g class="door-closed">
+              <rect x="390" y="30" width="70" height="130" rx="2"/>
+              <circle cx="448" cy="95" r="2.5"/>
+              <line x1="400" y1="50" x2="450" y2="50"/>
+              <line x1="400" y1="90" x2="450" y2="90"/>
+              <line x1="400" y1="130" x2="450" y2="130"/>
+            </g>
+            <!-- closed door 5 -->
+            <g class="door-closed">
+              <rect x="490" y="30" width="70" height="130" rx="2"/>
+              <circle cx="548" cy="95" r="2.5"/>
+              <line x1="500" y1="50" x2="550" y2="50"/>
+              <line x1="500" y1="90" x2="550" y2="90"/>
+              <line x1="500" y1="130" x2="550" y2="130"/>
+            </g>
+          </svg>
+        </figure>
 
         <h2>in personal life</h2>
         <p>Same rules. If I like someone, I say it. If a routine is killing me, I change it -- not next month, this week. If I want something, I go ask. The worst case is almost always a "no", and "no" is free.</p>
