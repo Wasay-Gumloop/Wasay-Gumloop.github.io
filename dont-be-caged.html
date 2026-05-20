@@ -13,11 +13,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .essay-body h2 {
-      font-weight: 700;
-      text-decoration: underline;
-      text-underline-offset: 0.2em;
-    }
     .sentence-graphic {
       margin: 2.5em auto;
       max-width: 540px;
@@ -42,14 +37,19 @@
       stroke-width: 1.4;
       opacity: 0.5;
     }
-    .sentence-graphic .dot {
-      fill: currentColor;
+    .sentence-graphic .opening-word {
+      stroke: currentColor;
+      stroke-width: 2;
+      opacity: 0.55;
+      stroke-linecap: round;
     }
-    .sentence-graphic .dot-1 { opacity: 0.8; }
-    .sentence-graphic .dot-2 { opacity: 0.62; }
-    .sentence-graphic .dot-3 { opacity: 0.45; }
-    .sentence-graphic .dot-4 { opacity: 0.3; }
-    .sentence-graphic .dot-5 { opacity: 0.18; }
+    .sentence-graphic .asterisk {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      opacity: 0.85;
+    }
     .sentence-graphic .caption {
       font-family: 'Instrument Serif', serif;
       font-style: italic;
@@ -69,10 +69,10 @@
       <h1>i'm not a [blank] person</h1>
       <p class="section-desc">on the sentences that quietly cage you.</p>
       <div class="essay-body">
-        <p>the sentences we say about ourselves most casually are the ones that do the most damage. "i'm an introvert" is the one i've used for years. it sounds like a description. it works like a fence. someone asks if i want to go to a concert and the sentence is already in my mouth, doing the work of declining before i've even thought about whether i wanted to go. i'm an introvert, so i don't do concerts. i'm an introvert, so i don't do big dinners. i'm an introvert, so. the word stops being a thing i am and becomes a thing i hide behind, and the hiding gets more comfortable every time.</p>
+        <p>we lean toward confirming what we already believe about ourselves. "i'm an introvert" stops being a description and starts being a fence. it declines the concert before you've thought about whether you wanted to go. it skips the dinner before you've met the people. repeat it enough and the sentence starts living your life for you.</p>
 
         <figure class="sentence-graphic">
-          <svg viewBox="0 0 600 220" preserveAspectRatio="xMidYMid meet" role="img" aria-label="The same sentence shown twice: the top ends with a hard period and a wall behind it; the bottom ends with trailing dots that drift into open space.">
+          <svg viewBox="0 0 600 220" preserveAspectRatio="xMidYMid meet" role="img" aria-label="The same sentence shown twice: the top ends with a hard period and a wall closing it off; the bottom continues with a few more strokes and ends with an asterisk that opens a small gap in the wall.">
             <!-- TOP ROW: closed sentence -->
             <g class="row-closed">
               <line class="word" x1="100" y1="50" x2="150" y2="50"/>
@@ -84,23 +84,32 @@
             </g>
             <text x="100" y="85" class="caption">i'm an introvert.</text>
 
-            <!-- BOTTOM ROW: open sentence -->
+            <!-- BOTTOM ROW: opened sentence with asterisk -->
             <g class="row-open">
               <line class="word" x1="100" y1="160" x2="150" y2="160"/>
               <line class="word" x1="160" y1="160" x2="215" y2="160"/>
               <line class="word" x1="225" y1="160" x2="305" y2="160"/>
               <line class="word" x1="315" y1="160" x2="375" y2="160"/>
-              <circle class="dot dot-1" cx="390" cy="160" r="4"/>
-              <circle class="dot dot-2" cx="415" cy="160" r="3.5"/>
-              <circle class="dot dot-3" cx="445" cy="160" r="3"/>
-              <circle class="dot dot-4" cx="480" cy="160" r="2.5"/>
-              <circle class="dot dot-5" cx="520" cy="160" r="2"/>
+              <circle class="period" cx="390" cy="160" r="3" style="opacity:0.4"/>
+              <!-- comma-and-continuation strokes -->
+              <line class="opening-word" x1="405" y1="160" x2="445" y2="160"/>
+              <line class="opening-word" x1="455" y1="160" x2="490" y2="160"/>
+              <line class="opening-word" x1="500" y1="160" x2="535" y2="160"/>
+              <!-- asterisk (six small radial strokes) -->
+              <g transform="translate(550, 152)">
+                <line class="asterisk" x1="0" y1="-6" x2="0" y2="6"/>
+                <line class="asterisk" x1="-5.2" y1="-3" x2="5.2" y2="3"/>
+                <line class="asterisk" x1="-5.2" y1="3" x2="5.2" y2="-3"/>
+              </g>
+              <!-- wall with a gap in the middle, suggesting an opening -->
+              <line class="wall" x1="572" y1="125" x2="572" y2="148"/>
+              <line class="wall" x1="572" y1="172" x2="572" y2="195"/>
             </g>
-            <text x="100" y="195" class="caption">i'm an introvert, for now...</text>
+            <text x="100" y="195" class="caption">i'm an introvert, but i could try*</text>
           </svg>
         </figure>
 
-        <p>the move i'm trying to learn is small. add "for now" to the end. not "i'm an introvert, i don't do concerts." instead, "i'm an introvert, i don't do concerts for now..." the trailing dots are the whole point. they refuse to let the sentence close. they admit that the person saying it today might not be the person reading it back in a year. the scary part was never the concert or the dinner or whatever else i declined in a sentence i said too quickly. the scary part is realising how many doors i closed on myself with throwaway lines, and how few of them were ever actually locked.</p>
+        <p>i read an idea once about adding a mental asterisk to these sentences. not "i'm an introvert." instead, "i'm an introvert, but i could try*." the asterisk isn't hidden doubt. it's an opening, written into the sentence itself. you haven't reversed anything. you've just refused to let the sentence be the last word. most of the doors we close on ourselves were never actually locked, just labelled.</p>
 
         <p class="essay-coda">a learning, not a lesson. i still catch myself doing it most weeks.</p>
       </div>
