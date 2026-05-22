@@ -999,40 +999,41 @@ nav {
   font-family: var(--serif);
   font-style: italic;
   font-size: 13px;
+  line-height: 1;
   color: var(--text-tertiary);
   letter-spacing: 0;
-  margin-top: 2px;
   opacity: 0;
   transform: translateY(-2px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .last-updated.loaded { opacity: 1; transform: translateY(0); }
 .last-updated .lu-dot {
-  width: 4px;
-  height: 4px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: var(--accent);
   box-shadow: 0 0 0 2px var(--accent-glow);
   flex-shrink: 0;
   animation: lu-pulse 2.6s ease-in-out infinite;
-  margin-top: 1px;
 }
-.last-updated .lu-label { color: var(--text-tertiary); }
+.last-updated .lu-label { color: var(--text-tertiary); line-height: 1; }
 .last-updated .lu-sep {
   color: var(--border);
   font-style: normal;
   font-family: var(--sans);
   font-size: 11px;
+  line-height: 1;
 }
 .last-updated .lu-date {
   color: var(--text-secondary);
   font-variant-numeric: tabular-nums;
+  line-height: 1;
 }
 @keyframes lu-pulse {
   0%, 100% { box-shadow: 0 0 0 2px var(--accent-glow); }
   50%      { box-shadow: 0 0 0 4px var(--accent-glow); }
 }
 @media (max-width: 600px) {
-  .last-updated { font-size: 12px; gap: 6px; margin-top: 1px; }
-  .last-updated .lu-dot { width: 3px; height: 3px; }
+  .last-updated { font-size: 12px; gap: 6px; }
+  .last-updated .lu-dot { width: 4px; height: 4px; }
 }
