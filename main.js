@@ -104,3 +104,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
 });
+
+// --- Last updated (fetches latest commit date from GitHub) ---
+(function setLastUpdated() {
+  const el = document.getElementById('last-updated');
+  if (!el) return;
+
+  const REPO = 'Wasay-Gumloop/Wasay-Gumloop.github.io';
+  const CACHE_KEY = 'wasay-last-updated-v1';
+  const CACHE_TTL = 1000 * 60 * 30; // 30 minutes
+
+  function render(iso) {
+    const d = new Date(iso);
+    if (isNaN(d.getTime())) return;
+    const formatted = d.toLocaleDateString('en-US', {
+      month: 'long', day: 'numeric', year: 'numeric'
+    });
+    el.textContent = `Last Updated: ${formatted}`;
+    el.classList.add('loaded');
+  }
+
+  // Try cache first to avoid a flash + reduce API hits
+  try {
+    const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+    if (cached && cached.iso && (Date.now() - cached.ts) < CACHE_TTL) {
+      render(cached.iso);
+    }
+  } catch (_) {}
+
+  fetch(`https://api.github.com/repos/${REPO}/commits/main`, {
+    headers: { 'Accept': 'application/vnd.github+json' }
+  })
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(data => {
+      const iso = data && data.commit && data.commit.committer && data.commit.committer.date;
+      if (!iso) return;
+      try { localStorage.setItem(CACHE_KEY, JSON.stringify({ iso, ts: Date.now() })); } catch (_) {}
+      render(iso);
+    })
+    .catch(() => {
+      // If API fails and we never rendered, hide the element so we never show stale info
+      if (!el.classList.contains('loaded')) el.style.display = 'none';
+    });
+})();

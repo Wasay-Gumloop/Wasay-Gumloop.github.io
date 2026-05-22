@@ -989,3 +989,22 @@ nav {
   .reels-grid { grid-template-columns: 1fr; }
   .reel-card { min-height: auto; }
 }
+
+
+/* --- Last updated banner --- */
+.last-updated {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-align: right;
+  padding: 12px 0 0;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.last-updated.loaded {
+  opacity: 1;
+}
+@media (max-width: 600px) {
+  .last-updated { font-size: 10px; padding: 8px 0 0; }
+}
