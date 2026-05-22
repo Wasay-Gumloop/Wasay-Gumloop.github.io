@@ -109,6 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
 (function setLastUpdated() {
   const el = document.getElementById('last-updated');
   if (!el) return;
+  const dateEl = el.querySelector('.lu-date');
+  if (!dateEl) return;
 
   const REPO = 'Wasay-Gumloop/Wasay-Gumloop.github.io';
   const CACHE_KEY = 'wasay-last-updated-v1';
@@ -120,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const formatted = d.toLocaleDateString('en-US', {
       month: 'long', day: 'numeric', year: 'numeric'
     });
-    el.textContent = `Last Updated: ${formatted}`;
+    dateEl.textContent = formatted;
     el.classList.add('loaded');
   }
 

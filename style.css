@@ -991,20 +991,41 @@ nav {
 }
 
 
-/* --- Last updated banner --- */
+/* --- Last updated (sits under the location widget) --- */
 .last-updated {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-family: var(--sans);
   font-size: 11px;
   color: var(--text-tertiary);
-  text-align: right;
-  padding: 12px 0 0;
   letter-spacing: 0.02em;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transform: translateY(-2px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
-.last-updated.loaded {
-  opacity: 1;
+.last-updated.loaded { opacity: 1; transform: translateY(0); }
+.last-updated .lu-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+  flex-shrink: 0;
+  animation: lu-pulse 2.4s ease-in-out infinite;
+}
+.last-updated .lu-label { color: var(--text-tertiary); }
+.last-updated .lu-sep { color: var(--border); font-size: 10px; }
+.last-updated .lu-date {
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+@keyframes lu-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px var(--accent-glow); }
+  50%      { box-shadow: 0 0 0 5px var(--accent-glow); }
 }
 @media (max-width: 600px) {
-  .last-updated { font-size: 10px; padding: 8px 0 0; }
+  .last-updated { font-size: 10px; gap: 5px; }
+  .last-updated .lu-dot { width: 4px; height: 4px; }
 }
