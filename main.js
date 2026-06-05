@@ -1,12 +1,12 @@
-// ========================================
+// =============================================
 // wasay.dev
-// ========================================
+// =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- Live clock ---
   // TIMEZONE — change this when you move
-  const LOCATION_TZ = 'Asia/Kuala_Lumpur';
+  const LOCATION_TZ = 'Asia/Karachi';
 
   function updateClock() {
     const el = document.getElementById('location-time');
